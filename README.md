@@ -76,8 +76,35 @@ Esse algoritomo converte um numero para uma String e printa ela na tela
 section .text
 global _start
 _start:
-  mov rax, 123 ;armazena o numero que eu quero
+  mov rax, 12355 ; numero que eu quero
 
-  mov byte [rdi], b + 9 ;move o resgistrador para o ultimo 
+  mov rdi, bu + 9 ; recebe a primeira posição
+  mov byte [rdi], 10 ; move quebra linha par o fim
+  mov rcx, 1 ; sera usado para como contador de caracteres
+
+loop_div:
+  dec rdi
+  xor rdx, rdx
+  mov rbx, 10
+  div rbx
+
+  add dl, '0'
+  mov [rdi], dl
+  inc rcx
+
+  cmp rax, 0
+  jne loop_div
+
+  mov rax, 1
+  mov rdx, rcx
+  mov rsi, rdi
+  mov rdi, 1
+  syscall
+
+  mov rax, 60
+  xor rdi, rdi
+  syscall
+
 section .bss
-  b: resp 10
+  bu: resb 10
+```
