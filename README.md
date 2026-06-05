@@ -33,15 +33,14 @@ section .data
 
 Esse algoritmo pega uma mensagem do usuario e imprime na tela
 
-```assembly
-section .text
+```assemblysection .text
 global _start
 _start:
 
   mov rax, 1
   mov rdi, 1
   mov rsi, saudacao
-  mov rdx, 21
+  mov rdx, 23
   syscall
   
   mov rax, 0
@@ -50,12 +49,18 @@ _start:
   mov rdx, 20
   syscall
 
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, msg
+  mov rdx, 23
+  syscall
+
   mov rax, 60
   xor rdi, rdi
   syscall
 
 section .data
-  saudacao: db "Escreva sua mensagem", 21
+  saudacao: db "Escreva sua mensagem: ", 22
 
 section .bss
   msg: resb 21
