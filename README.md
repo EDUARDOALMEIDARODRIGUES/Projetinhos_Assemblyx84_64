@@ -28,3 +28,36 @@ section .data
   saudacao: db "Ola mundo :)", 13
 
 ```
+
+###Print de uma mensagem do usuario
+
+Esse algoritmo pega uma mensagem do usuario e imprime na tela
+
+```assembly
+section .text
+global _start
+_start:
+
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, saudacao
+  mov rdx, 21
+  syscall
+  
+  mov rax, 0
+  mov rdi, 0
+  mov rsi, msg
+  mov rdx, 20
+  syscall
+
+  mov rax, 60
+  xor rdi, rdi
+  syscall
+
+section .data
+  saudacao: db "Escreva sua mensagem", 21
+
+section .bss
+  msg: resb 21
+
+```
