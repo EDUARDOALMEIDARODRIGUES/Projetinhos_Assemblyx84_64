@@ -33,7 +33,8 @@ section .data
 
 Esse algoritmo pega uma mensagem do usuario e imprime na tela
 
-```assemblysection .text
+```assembly
+section .text
 global _start
 _start:
 
