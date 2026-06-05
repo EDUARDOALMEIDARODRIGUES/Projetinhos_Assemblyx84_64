@@ -67,3 +67,17 @@ section .bss
   msg: resb 21
 
 ```
+
+### Converção de numero para String
+
+Esse algoritomo converte um numero para uma String e printa ela na tela
+
+```assembly
+section .text
+global _start
+_start:
+  mov rax, 123 ;armazena o numero que eu quero
+
+  mov byte [rdi], b + 9 ;move o resgistrador para o ultimo 
+section .bss
+  b: resp 10
